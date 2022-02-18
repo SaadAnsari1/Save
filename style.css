@@ -1,0 +1,174 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  
+}
+video{
+  width: 30px;
+  height: 30px;
+}
+.GameContainer{
+  background: url('Background.png');
+  background-repeat: no-repeat;
+/*  background-size: 100vh 100vw;*/
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-size: cover;
+}
+#HighCount{
+  font-size: 28px;
+  visibility: hidden;
+  text-align: center;
+}
+
+#player{
+  background: url(Player.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 265px;
+  visibility: visible;
+  border-radius: 50px;
+  
+}
+.Player-Jump-Animation{
+  animation: Player-Jump-Animation 0.6s linear;
+}
+#obstacle{
+  background: url(obstacle.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 265px;
+  left: 320px;
+  animation: Obstacle-Runing-Animation 1s linear infinite;
+  border-radius: 90%;
+  visibility: visible;
+
+}
+.obstacle-size{
+   animation: Obstacle-Runing-Size-Animation 1s linear infinite;
+}
+.about div{
+    z-index: 2;
+    position: relative;
+    bottom: -15px
+
+}
+.about img {
+  width: 100vw;
+  height: 145px;
+  position: relative;
+  bottom: 13vh;
+  z-index: 1;
+}
+.about p{
+  padding-left: 25px;
+  padding-top: 1px
+}
+h6{
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+}
+p{
+  font-size: 8px;
+  padding: 10px;
+}
+a{
+  text-decoration: none;
+  text-decoration-color: none;
+  border: none;
+  color: #000
+}
+#GameOver{
+  background: url('WoodenPanel.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 50vh;
+  margin-top: 20vh;
+  visibility: hidden;
+}
+.GameOver-Animation{
+  animation: GameOver-Animation 0.6s linear;
+}
+.GameOver-container{
+  padding-top: 15vh;
+}
+#GameOver h2{
+  font-size: 16px;
+  text-align: center;
+}
+#GameOver p{
+  font-size: 8px;
+  padding: 10px 50px;
+}
+#GameOver button{
+  margin-left: 40vw;
+  background-size: cover;
+  border: none;
+  background: none;
+  background-repeat: no-repeat;
+  background: url('../assists/Background.png');
+}
+/*  ANIMATION   - GAME  */
+
+@keyframes GameOver-Animation{
+  0%{
+    margin-top: -500px;
+  }
+  50%{
+    margin-top: 500px;
+  }
+  100%{
+    margin-top: 200px;
+  }
+}
+
+@keyframes Player-Jump-Animation{
+  0%{
+    top: 265px
+  }
+  40%{
+    top: 100px;
+  }
+  70%{
+    top: 100px;
+  }
+  100%{
+    top: 265px
+  }
+}
+
+@keyframes Obstacle-Runing-Animation {
+  0%{
+    left: 320px;
+  }
+  100%{
+    left: -20px;
+  }
+  
+}
+@keyframes Obstacle-Runing-Size-Animation{
+  0%{
+    width: 30px;
+    height: 30px;
+  }
+  50%{
+    width: 50px;
+    height: 50px;
+  }
+  100%{
+    width: 30px;
+  height: 30px;
+  }
+}

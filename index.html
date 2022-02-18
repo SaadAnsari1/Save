@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html onclick="Jump()">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAVE ME - GAME BY SAAD ANSARI</title>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="GameContainer" >
+
+  <p>
+      <span id="score"></span>
+      <span id="highScore"></span><br>
+      <span id="HighScorePlayer"></span>
+      <div id="HighCount">High score</div>
+  </p>
+  
+  
+  
+  <div id="player"></div>
+  
+  <div id="obstacle"></div>
+  
+  
+  <div id="GameOver">
+    <div class="GameOver-container">
+      
+        <h2>GAME OVER</h2>
+        
+        <p>YOUR SCORE: <span id="GameOver-score"></span></p>
+        
+        <p>HIGH SCORE: <span id="GameOver-highScore"></span></p>
+        
+    </div>
+  </div>
+  <div class="about">
+    <div>
+       <h6>Feedback</h6>
+   <p>
+    mail 💌 - saadansari6845@gmail.com
+    </p>
+   <p> Instagram - <a href="https://Instagram.com/saad_ansari_4"><b>S</b>aad_<b>A</b>nsari_4 </a>
+   </p> 
+    </div>
+ 
+       <img src="WoodenPanel.png" alt="">
+       
+  </div>
+</div>
+
+</body>
+<script >
+  let Player = document.getElementById('player');
+  let JumpSound = new Audio('jump.mp3');
+  let GameOverSound = new Audio('GameOversound.mp3');
+  let score = 0;
+  let highCount = document.getElementById('HighCount');
+  const name = 'SAAD ANSARI'
+  function Jump() {
+    if (Player.classList != 'Player-Jump-Animation') {
+      Player.classList.add('Player-Jump-Animation');
+          JumpSound.play();
+      setTimeout(function() {
+        Player.classList.remove('Player-Jump-Animation');
+      }, 900);
+    }
+  };
+  
+  
+  let isAlive = setInterval(function() {
+    let GameOver = document.getElementById('GameOver')
+    // get current dino Y position
+    let PlayerY = parseInt(window.getComputedStyle(Player).getPropertyValue("top"));
+  
+    // get current cactus X position
+    let ObstacleX = parseInt(
+      window.getComputedStyle(obstacle).getPropertyValue("left")
+    );
+  
+    // detect collision
+    if (ObstacleX < 50 && ObstacleX > 0 && PlayerY >= 220) {
+      // collision
+
+     obstacle.style.animation = "noun";
+    // Player.style.visibility = "hidden";
+     GameOverSound.play();
+   /*  if(PlayerScore == highScore){
+       name = prompt('Enter Your Name: ');
+     }else{
+       alert(`Game Over score: ${PlayerScore}`)
+     }*/
+     alert('GAME OVER score: '+PlayerScore)
+          score=0;
+     obstacle.style.animation = "Obstacle-Runing-Animation 1s linear infinite";
+    }else{
+      score++;
+      PlayerScore=Math.floor(score/10);
+if (highScore>PlayerScore) {
+          null
+        } else {
+          highScore=PlayerScore;
+         // HighscoreSound.play();
+         if(highScore>100){
+         highCount.style.visibility = 'visible';
+
+         }
+         setTimeout(function(){
+           highCount.style.visibility = 'hidden';
+         },10)
+        };
+     
+
+      let Myscore = document.getElementById('score').innerHTML = 'Score: '+ PlayerScore;
+      let MyhighScore = document.getElementById('highScore').innerHTML = 'highScore: '+ highScore;
+      let highScorePlayer = document.getElementById('HighScorePlayer').innerHTML = 'Author: '+ name;
+
+
+
+
+      document.getElementById('GameOver-score').innerHTML = Myscore;
+      
+      document.getElementById('GameOver-highScore').innerHTML = MyhighScore;
+
+
+    }
+  }, 10);
+  
+  
+
+</script>
+</html>
+
+
+<!-->
+/*  if(score == 100){
+    obstacle.style.width="35px";
+    obstacle.style.height="35px";
+  }else if(score == 300){
+     obstacle.style.width="120px";
+    obstacle.style.height="120px";
+  } else{
+    let obstacle = document.getElementById('obstacle');
+  }
+    /*  alert('GameOver'+score)*/
+  /*    GameOver.classList.add('GameOver-Animation')
+      GameOver.style.visibility = "visible";
+      obstacle.style.animation = "noun";
+      obstacle.style.visibility = "hidden";
+      Player.style.visibility = "hidden";
+      score=0;
+     
+      setTimeout(function(){
+        GameOver.style.visibility = "hidden";
+        Player.style.visibility = "visible";
+        obstacle.style.animation = "Obstacle-Runing-Animation 1s linear infinite";
+        obstacle.style.visibility = "visible";       
+
+      },1000)
+*/
+  */
+  
+   /*   if(ObstacleAni == 1){
+      null
+    }else{
+              newDur = ObstacleAni - 0.1;
+
+      setTimeout(function() {
+        obstacle.style.animationDuration = newDur+'s';},500)
+        
+}*/
+   /*   
+      ObstacleW = parseInt(window.getComputedStyle(obstacle, null).getPropertyValue('width'));
+      ObstacleH = parseInt(window.getComputedStyle(obstacle,null).getPropertyValue('height'))
+      
+      NewObstacleW = ObstacleW + 1;
+      NewObstacleH = ObstacleH + 1;
+      
+      obstacle.style.width=NewObstacleW+ "px";
+      obstacle.style.height=NewObstacleH+ "px";
+*/
+  
+  
